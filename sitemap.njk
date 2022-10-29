@@ -1,0 +1,31 @@
+---
+layout: base.njk
+type: sitemap
+eleventyExcludeFromCollections: true
+pagination:
+  data: collections.allNotes
+  size: 10
+  alias: notes
+  reverse: true
+---
+<div class="column is-half">
+  <div class="block">
+    <h1>Sitemap</h1>
+  </div>
+
+  <div class="block note-list note-cards">
+    {% for note in notes %}
+      {% include "note-list-item.njk" %}
+    {% endfor %}
+  </div>
+
+  {% if pagination.pages %}
+    <ul class="pagination">
+      <li>Pages: </li>
+    {%- for pageEntry in pagination.pages %}
+      <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
+    {%- endfor %}
+    </ul>
+  {% endif %}
+
+</div>

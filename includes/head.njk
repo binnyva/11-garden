@@ -1,0 +1,33 @@
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap" rel="stylesheet" />
+
+<meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ siteConfig.title }}{% endif %}" />
+<meta property="og:description" content="{% if excerpt %}{{ excerpt }}{% else %}{{ siteConfig.description }}{% endif %}" />
+<meta property="og:url" content="{{ page.url }}" />
+{% if type == 'note' %}<meta property="og:type" content="article" />
+{% else %}<meta property="og:type" content="website" />
+{% endif %}
+
+{% set excerpt = excerpt | truncate(55) %}
+<meta name="description" content="{% if excerpt %}{{ excerpt }}{% else %}{{ siteConfig.description }}{% endif %}" />
+<link rel="canonical" href="{{ page.url }}" />
+
+<title>{% if title %}{{ title }} | {% endif %}{{ siteConfig.title }}</title>
+
+<link rel="apple-touch-icon" href="/assets/img/favicon.png" />
+<link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+
+{# <script src="{{ '/assets/js/script.js' }}" type="module"></script> #}
+<link rel="stylesheet" href="/assets/styles/common/bulma.css" />
+<link rel="stylesheet" href="/assets/styles/common/style.css" />
+<link rel="stylesheet" href="/assets/styles/common/custom.css" />
+<link rel="stylesheet" href="/assets/styles/common/util.css" />
+
+<link rel="stylesheet" href="/assets/styles/note.css" />
+
+{% if type == 'index' %}<link rel="stylesheet" href="/assets/styles/index.css" />
+{% elif type == 'tag' %}<link rel="stylesheet" href="/assets/styles/tag-list.css" />
+{% elif type == 'sitemap' %}<link rel="stylesheet" href="/assets/styles/pager.css" />
+{% endif %}

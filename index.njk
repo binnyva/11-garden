@@ -1,0 +1,35 @@
+---
+layout: base.njk
+type: index
+eleventyExcludeFromCollections: true
+pagination:
+  data: collections.allNotes 
+  size: 5
+  alias: notes
+  reverse: true
+---
+
+<div class="column is-half">
+  <div class="block">
+    <h1>{{siteConfig.title}}</h1>
+    <p class="lead">{{siteConfig.description}}</p>
+  </div>
+
+  {% if collections.topTags %}
+    <div class="block tag-list">
+      {% for tag in collections.topTags %}
+        <a href="/tags/{{ tag }}" class="pill">{{ tag | titleCase }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {# <div class="block">
+    <Search size="medium" showExcerpt={true} />
+  </div> #}
+
+  <div class="block note-list note-cards">
+    {% for note in notes %}
+      {% include "note-list-item.njk" %}
+    {% endfor %}
+  </div>
+</div>

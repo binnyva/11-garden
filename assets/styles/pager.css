@@ -1,0 +1,16 @@
+.pager {
+  margin-top: 20px;
+}
+
+.pagination {
+  list-style: none;
+  margin: 0;
+  padding-left: .25em;
+}
+.pagination li {
+  margin-left: .5em;
+  display:  inline;
+}
+.pagination li:first-child {
+  margin-left: 0;
+}

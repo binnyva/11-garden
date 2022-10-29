@@ -1,0 +1,25 @@
+{% if note.data.permalink %}
+<div class="note-area box-feed" role="button" >
+  <h4 class="note-title">
+    <a href="/{{ note.data.permalink }}">{{ note.data.title }}</a>
+  </h4>
+  <p class="note-excerpt">
+    {% if note.data.excerpt %}{{ note.data.excerpt }}
+    {% else %}{{ note.templateContent | extractExcerpt | safe }}
+    {% endif %}
+  </p>
+
+  {% if note.data.tags %}
+    <p class="note-tag-list">
+      Tagged With:
+      {% for tag in note.data.tags %}
+        <span><a href="/tags/{{ tag | makeSlug }}">#{{ tag }}</a> </span>
+      {% endfor %}
+    </p>
+  {% endif %}
+
+  <p class="note-date">
+    Published on {{ note.data.date | readableDate  }}
+  </p>
+</div>
+{% endif %}

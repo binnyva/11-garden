@@ -1,0 +1,112 @@
+@import "./variables.css";
+
+.note-area .note-title {
+  margin: 0 5px;
+  padding: 0 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.note-tags h6,
+.note-tags ul,
+.note-tags li {
+  display: inline;
+}
+.note-tags ul {
+  padding: 0;
+}
+.note-area .note-tags li::after {
+  content: ", ";
+}
+.note-area .note-tags li:last-child:after {
+  content: "";
+}
+
+.note-references,
+.note-tags,
+.note-graph,
+.note-meta,
+.note-content {
+  margin: 10px;
+}
+
+.note-content img {
+  max-width: 100% !important;
+}
+.note-content a {
+  color: var(--link) !important;
+}
+.note-content table {
+  width: 100%;
+  border-top: 1px solid var(--bg-sub);
+  margin: 20px 0;
+}
+.note-content table tr {
+  border-bottom: 1px solid var(--bg-sub);
+}
+.note-content table td,
+.note-content table th {
+  padding: 5px;
+}
+
+.note-content blockquote {
+  background: var(--bg-sub);
+  border-left: 10px solid var(--border);
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+.note-content blockquote::before {
+  color: var(--border);
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+.note-content blockquote p {
+  display: inline;
+}
+.note-content code {
+  color: var(--text-sub);
+}
+
+.note-list .note-area {
+  padding: 10px;
+}
+.note-area .note-title {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+.note-area .note-excerpt {
+  margin: 0;
+}
+.muted-text {
+  margin: 0;
+  opacity: .4;
+  font-size: .9em;
+}
+.block-box h4,.block-box h5 {
+  margin: 0;
+  opacity: .6;
+}
+
+.note-list .note-tag-list {
+  margin: 0;
+  color: #999;
+  font-size: small;
+}
+.note-list .note-date {
+  margin: 0;
+  color: #666;
+  font-size: small;
+}
+.note-list .note-area:nth-child(odd) {
+  background-color: var(--bg-sub);
+}
+
+.tippy-box {
+  max-height: 14rem;
+  overflow: auto;
+}

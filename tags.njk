@@ -1,0 +1,30 @@
+---
+layout: base.njk
+type: tag
+eleventyExcludeFromCollections: true
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - permanent-notes
+    - all
+    - allNotes
+    - tagList
+    - topTags
+permalink: /tags/{{ tag | makeSlug }}/
+---
+<div class="column is-half">
+  <div class="block">
+    <h1>{{ collections[ tag ].length }} notes tagged with "{{ tag }}"</h1><br />
+  </div>
+
+  <div class="block">
+    {% set taglist = collections[ tag ] %}
+    <div class="block note-list note-cards">
+    {% for note in taglist | reverse %}
+      {% include "note-list-item.njk" %}
+    {% endfor %}
+    </div>
+  </div>
+</div>
