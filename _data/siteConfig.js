@@ -1,10 +1,11 @@
 // require("dotenv").config();
 
 module.exports = {
-    title: "PKM Book",
+    title: `11 Garden`,
+    description: `A Digital Garden tended by Eleventy`,
     url: "http://localhost:8080", // "https://mindos.in/pkm-book/"
     author: "Binny V A",
-    description: "Book about Personal Knowledge Management, Zettelkasten, Tools and Processes.",
+    pathPrefix: "/", // If your Digital Garden is not published at the root of your website, use this. Requires a ending '/'
 
     // headerMenu: [
     //   {type: 'page', item: '', title: 'Home'},

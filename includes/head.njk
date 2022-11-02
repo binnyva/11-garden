@@ -16,18 +16,18 @@
 
 <title>{% if title %}{{ title }} | {% endif %}{{ siteConfig.title }}</title>
 
-<link rel="apple-touch-icon" href="/assets/img/favicon.png" />
-<link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+<link rel="apple-touch-icon" href="{{ siteConfig.pathPrefix }}assets/img/favicon.png" />
+<link rel="icon" href="{{ siteConfig.pathPrefix }}assets/img/favicon.png" type="image/png" sizes="16x16" />
 
 {# <script src="{{ '/assets/js/script.js' }}" type="module"></script> #}
-<link rel="stylesheet" href="/assets/styles/common/bulma.css" />
-<link rel="stylesheet" href="/assets/styles/common/style.css" />
-<link rel="stylesheet" href="/assets/styles/common/custom.css" />
-<link rel="stylesheet" href="/assets/styles/common/util.css" />
+<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/bulma.css" />
+<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/style.css" />
+<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/custom.css" />
+<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/util.css" />
 
-<link rel="stylesheet" href="/assets/styles/note.css" />
+<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/note.css" />
 
-{% if type == 'index' %}<link rel="stylesheet" href="/assets/styles/index.css" />
-{% elif type == 'tag' %}<link rel="stylesheet" href="/assets/styles/tag-list.css" />
-{% elif type == 'sitemap' %}<link rel="stylesheet" href="/assets/styles/pager.css" />
+{% if type == 'index' %}<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/index.css" />
+{% elif type == 'tag' %}<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/tag-list.css" />
+{% elif type == 'sitemap' %}<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/pager.css" />
 {% endif %}

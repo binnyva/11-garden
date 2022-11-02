@@ -1,8 +1,12 @@
 const { format, formatISO, getYear } = require("date-fns");
 const makeSlug = require(`./utils/make-slug`)
 const { camelCase, startCase } = require('lodash')
+const siteConfig = require("./_data/siteConfig.js");
+const Plugin = require('markdown-it-regexp')
 
 module.exports = function(eleventyConfig) {
+	const imageFolder = 'images';
+	if(!siteConfig.pathPrefix) siteConfig.pathPrefix = '/';
 	
 	const markdownIt = require('markdown-it');
 	const markdownItOptions = {
@@ -11,20 +15,32 @@ module.exports = function(eleventyConfig) {
 	};
 	
 	const md = markdownIt(markdownItOptions)
-		.use(function(md) {
-			// Recognize Mediawiki links ([[text]])
-			md.linkify.add("[[", {
-				validate: /^\s?([^\[\]\|\n\r]+)(\|[^\[\]\|\n\r]+)?\s?\]\]/,
-				normalize: match => {
-					const parts = match.raw.slice(2,-2).split("|");
-					parts[0] = parts[0].replace(/.(md|markdown)\s?$/i, "");
-					match.text = (parts[1] || parts[0]).trim();
-					match.url = `/${makeSlug(parts[0].trim())}/`;
-				}
-			})
-		})
+		// Very simplified version of https://github.com/alexjv89/markdown-it-obsidian
+		// Supports both [[WikiLinks]], and ![[ObsidianImageFormat.png]]
+		.use(new Plugin(/!?\[\[(([^\]#\|]*)(#[^\|\]]+)*(\|[^\]]*)*)\]\]/,
+	    (match, utils) => {
+	    	let label = ''
+	      let pageName = ''
+	      const isSplit = !!match[3]
+	      if (isSplit) {
+	        label = match[3]
+	        pageName = match[1]
+	      } else {
+	        label = match[1] // ideally format(match[1])
+	        pageName = makeSlug(label)
+	      }
 
-	const image_folder = 'images';
+	      // make sure none of the values are empty
+	      if (!label || !pageName) {
+	        return match.input
+	      }
+
+	      if(match[0].startsWith('!')) {
+	        return `<img src="${siteConfig.pathPrefix}images/${match[1]}" alt="${label}" />`
+	      } else {
+	        return `<a href="/${siteConfig.pathPrefix}${pageName}">${label}</a>`
+	      }
+	    }))
 
 	// All images in the `_notes` folder will be copied to the `images` folder. So update the `src`.
 	md.renderer.rules.image = function (tokens, idx, options, env, self) {
@@ -35,7 +51,7 @@ module.exports = function(eleventyConfig) {
 
 	  if(!imgSrc.match(/^https?\:/)) {
 	  	const filename = imgSrc.replace(/^.*[\\\/]/, '')
-	  	imgSrc = '/' + image_folder + '/' + filename;
+	  	imgSrc = '/' + imageFolder + '/' + filename;
 	  }
 
 	  let html = `<img src="${imgSrc}" alt="${imgAlt}" />`; 
@@ -46,29 +62,25 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.setLibrary('md', md);
 	eleventyConfig.addPassthroughCopy('assets');
 	eleventyConfig.addPassthroughCopy({
-		"_notes/**/*.jpg": image_folder,
-		"_notes/**/*.jpeg":image_folder,
-		"_notes/**/*.png": image_folder,
-		"_notes/**/*.svg": image_folder
+		"_notes/**/*.jpg": imageFolder,
+		"_notes/**/*.jpeg":imageFolder,
+		"_notes/**/*.png": imageFolder,
+		"_notes/**/*.svg": imageFolder
 	});
 	eleventyConfig.setUseGitIgnore(false);
 
-	// eleventyConfig.setPathPrefix(pathPrefix);
-  // eleventyConfig.setTemplateFormats([
-  //     "njk",
-  //     "md",
-  //     "svg",
-  //     "jpg",
-  //     "css",
-  //     "png"
-  // ]);
+  // Removes everything after a <hr> - its all draft content.
+	eleventyConfig.addFilter("stripDraft", article => {
+		let parts = article.split("<hr>");
+		return parts[0];
+	});
 
 	eleventyConfig.addFilter("extractExcerpt", article => {
 		return extractExcerpt(article);
 	});
 
 	eleventyConfig.addFilter("markdownify", string => {
-		return ""; //md.render(string)
+		return md.render(string)
 	})
 
 	eleventyConfig.addFilter("stripHtml", string => {
@@ -97,9 +109,9 @@ module.exports = function(eleventyConfig) {
 		if(menuItem.title) title = menuItem.title
 
 		if (menuItem.type == 'tag') {
-      return `<a class="navbar-item" href="/tags/${menuItem.item}">${title}</a>`
+      return `<a class="navbar-item" href="${siteConfig.pathPrefix}tags/${menuItem.item}">${title}</a>`
     } else if (menuItem.type == 'page') {
-    	return `<a class="navbar-item" href="/${menuItem.item}">${title}</a>`
+    	return `<a class="navbar-item" href="${siteConfig.pathPrefix}${menuItem.item}">${title}</a>`
     }
 	})
 
@@ -135,6 +147,7 @@ module.exports = function(eleventyConfig) {
 
 
 	return {
+		pathPrefix: siteConfig.pathPrefix,
 		dir: {
 			input: "./",
 			output: "_site",
