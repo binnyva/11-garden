@@ -7,7 +7,7 @@
 
   <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="/">
+      <a class="navbar-item" href="{{ siteConfig.pathPrefix }}">
         <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" clipRule="evenodd" fill="var(--text-main)"
             d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" />
@@ -34,7 +34,7 @@
         {% for menuItem in siteConfig.headerMenu %}
           {% if menuItem.menu %}
             <span class="navbar-item dropdown">
-              <a href="/{{ menuItem.item }}"
+              <a href="{{ siteConfig.pathPrefix }}{{ menuItem.item }}"
                 id="dropdown-{{menuItem.item}}"
                 class="dropdown-toggle"
                 data-toggle="dropdown"
@@ -51,43 +51,6 @@
           {% endif %}
         {% endfor %}
 
-        {# 
-  {% for submenuItem in menuItem.menu %}
-                  {{ submenuItem | menu | safe  }}
-                {% endfor %}
-
-        {menu.map((item, index) => {
-          return item.menu ? (
-            <span key={index} class="navbar-item dropdown">
-              <Link
-                to={`/${item.item}`}
-                id={`dropdown-${item.item}`}
-                class="dropdown-toggle"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                {item.title ? item.title : startCase(camelCase(item.item))}
-              </Link>
-              <div
-                class="dropdown-menu"
-                aria-labelledby={`dropdown-${item.item}`}
-              >
-                {item.menu.map((subItem, subIndex) => {
-                  return (
-                    <MenuItem
-                      class="navbar-item"
-                      item={subItem}
-                      key={subIndex}
-                    />
-                  )
-                })}
-              </div>
-            </span>
-          ) : (
-            <MenuItem class="navbar-item" item={item} key={index} />
-          )
-        })} #}
       </div>
       <div class="navbar-end is-hidden-mobile">
         <div class="navbar-item">

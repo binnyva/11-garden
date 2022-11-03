@@ -12,7 +12,7 @@ Markdown is a lightweight markup language for creating formatted text using plai
 
 You should be able to _do this_ and **this** - basic formatting options. Wierdly, there is no underline in markdown - so no need to do that.
 
-Next, you should be able to create links - like [this](https://standup-philosophy.netlify.app/) - that link will go to the standup philosophy blog I have.
+Next, you should be able to create links - like [this](https://standup-philosophy.netlify.app/).
 
 ### Images
 
@@ -73,3 +73,11 @@ You should be able to show \*something\* or \`something\` characters(star and ba
 ### HTML
 
 You can use HTML in markdown - here we <u>Underline</u> text using HTML
+
+## Non Standard Markdown
+
+Markdown has too many variants. [[11 Garden]] supports a few non-standard feature that Obsidian(and other PKM tools) have added. Like...
+
+- WikiLinks - [[Understand by Explaining]]
+- WikiLinks with custom text - [[Understand by Explaining|custom text]]
+- Image insertion - ![[mental_programming.jpg]]

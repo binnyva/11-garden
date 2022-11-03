@@ -6,6 +6,7 @@ tags:
   - learning
   - notes
 excerpt: Zettelkasten is a Note Taking Process and a Knowledge Management System.
+source: "https://binnyva.com/zettelkasten/"
 ---
 
 Zettelkasten is a Note Taking Process and a Knowledge Management System. It has 3 types of notes…
