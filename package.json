@@ -1,7 +1,7 @@
 {
-  "name": "11ty-garden",
+  "name": "11-garden",
   "version": "0.0.1",
-  "description": "11ty Version of Digital Garden Generators",
+  "description": "11ty Version of Digital Garden Generator",
   "scripts": {
     "start": "eleventy --serve --quiet",
     "compile": "eleventy"
@@ -17,7 +17,7 @@
   ],
   "author": "Binny V A",
   "license": "MIT",
-  "homepage": "https://github.com/binnyva/11ty-garden",
+  "homepage": "https://github.com/binnyva/11-garden",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
     "date-fns": "^2.29.3",

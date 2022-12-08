@@ -21,6 +21,10 @@ module.exports = {
 
 			let backlinks = [];
 
+			if(!notes) { // Something is VERY wrong.
+				return backlinks;
+			}
+
 			// Search the other notes for backlinks
 			for(const otherNote of notes) {
 				const noteContent = otherNote.template.frontMatter.content;
