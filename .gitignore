@@ -1,2 +1,4 @@
 node_modules
 0Meta/
+_site/
+.DS_Store

@@ -10,7 +10,7 @@ Markdown is a lightweight markup language for creating formatted text using plai
 
 ## The Basics
 
-You should be able to _do this_ and **this** - basic formatting options. Wierdly, there is no underline in markdown - so no need to do that.
+You should be able to _do this_ and **this** - basic formatting options. Weirdly, there is no underline in markdown - so no need to do that.
 
 Next, you should be able to create links - like [this](https://standup-philosophy.netlify.app/).
 
@@ -44,19 +44,19 @@ And...
 
 ### Code
 
-You can put `code` in Markddown...
+You can put `code` in Markdown...
 
 ```c
 #include <stdio.h>
 
 void main() {
-    cout<<"Hello World!"<<endl;
+  cout<<"Hello World!"<<endl;
 }
 ```
 
 ## Advanced
 
-These are the slighly advanced formatting options.
+These are the slightly advanced formatting options.
 
 ### Tables
 
