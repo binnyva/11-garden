@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="{{ siteConfig.pathPrefix }}assets/img/favicon.png" />
 <link rel="icon" href="{{ siteConfig.pathPrefix }}assets/img/favicon.png" type="image/png" sizes="16x16" />
 
-{# <script src="{{ '/assets/js/script.js' }}" type="module"></script> #}
+<script src="{{ siteConfig.pathPrefix }}assets/js/script.js"></script>
 <link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/bulma.css" />
 <link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/style.css" />
 <link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/custom.css" />
@@ -31,3 +31,7 @@
 {% elif type == 'tag' %}<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/tag-list.css" />
 {% elif type == 'sitemap' %}<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/pager.css" />
 {% endif %}
+
+<link href="{{ siteConfig.pathPrefix }}pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="{{ siteConfig.pathPrefix }}pagefind/pagefind-ui.js"></script>
+<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/search.css" />

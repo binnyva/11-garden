@@ -22,10 +22,10 @@
         aria-label="menu"
         aria-expanded="false"
         data-target="navbar-main"
-        onClick="handleHamburgerMenuClick()">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
+        onClick="handleHamburgerMenuClick(event)">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
       </button>
     </div>
 
@@ -50,11 +50,16 @@
             {{ menuItem | menu | safe }}
           {% endif %}
         {% endfor %}
-
       </div>
+      
       <div class="navbar-end is-hidden-mobile">
         <div class="navbar-item">
-          {# <Search size="small" showExcerpt={false} /> #}
+          <div id="navbar-search"></div>
+          <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({ element: "#navbar-search", showSubResults: true, showImages: false });
+            });
+          </script>
         </div>
         <div class="navbar-item">
           {# <DarkMode /> #}

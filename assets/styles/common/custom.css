@@ -81,33 +81,3 @@ nav.navbar {
 .navbar-toggler {
   color: var(--text-main);
 }
-
-body.dark {
-  --pagefind-ui-primary: var(--text-sub);
-  --pagefind-ui-text: var(--text-main);
-  --pagefind-ui-background: var(--bg-main);
-  --pagefind-ui-border: var(--border);
-  --pagefind-ui-tag: var(--text-sub);
-}
-
-div.pagefind-ui__drawer {
-  background-color: var(--bg-main);
-  padding: 5px;
-  border: 1px solid var(--border);
-  margin-top: -5px;
-}
-
-li.pagefind-ui__result {
-  padding: 5px !important;
-}
-li.pagefind-ui__result:last-child {
-  border-bottom: 0 !important;
-}
-p.pagefind-ui__message {
-  padding: 5px !important;
-  text-align: right;
-  display: block !important;
-}
-div.pagefind-ui__results-area {
-  margin-top: 0 !important;
-}

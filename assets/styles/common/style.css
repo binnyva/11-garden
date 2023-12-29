@@ -690,7 +690,7 @@ hr {
   
 .searchbar input[type=text]:active,
 .searchbar input[type=text]:focus {
-    background-color: var(-bg-sub);
+    background-color: var(--bg-sub);
     outline: none;
 } 
 
