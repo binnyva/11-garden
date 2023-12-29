@@ -81,3 +81,21 @@ nav.navbar {
 .navbar-toggler {
   color: var(--text-main);
 }
+
+#themeToggle .theme-toggle-text {
+  display: none;
+}
+
+#themeToggle {
+  width: 30px;
+  height: 30px;
+  background: url("/assets/img/sun.svg") no-repeat;
+  background-size: contain;
+  color: var(--text-main);
+}
+body.dark #themeToggle {
+  width: 30px;
+  height: 30px;
+  background: url("/assets/img/moon.svg") no-repeat;
+  background-size: contain;
+}

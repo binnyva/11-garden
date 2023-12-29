@@ -6,3 +6,7 @@ const handleHamburgerMenuClick = e => {
     e.currentTarget.classList.toggle('is-active')
     target.classList.toggle('is-active')
 }
+
+function themeToggle() {
+    document.body.classList.toggle("dark");
+}

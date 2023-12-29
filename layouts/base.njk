@@ -51,7 +51,7 @@
           {% endif %}
         {% endfor %}
       </div>
-      
+
       <div class="navbar-end is-hidden-mobile">
         <div class="navbar-item">
           <div id="navbar-search"></div>
@@ -62,7 +62,9 @@
           </script>
         </div>
         <div class="navbar-item">
-          {# <DarkMode /> #}
+          <span id="themeToggle" onClick="themeToggle()">
+            <span class="theme-toggle-text">Toggle</span>
+          </span>
         </div>
       </div>
     </div>
