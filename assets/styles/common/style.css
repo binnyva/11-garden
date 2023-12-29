@@ -1,4 +1,4 @@
-@import "/styles/highlight.css";
+/* @import "./highlight.css"; */
 /* Containers: Body, Container, Box, Main, Header, Content */ 
 
 html, html[data-theme="light"], body.light {
@@ -20,7 +20,6 @@ html[data-theme="dark"], body.dark {
     --link: #6D9EFF;
     --border: #353535;
 }
-
 
 @media (prefers-color-scheme: dark) {
     html, html[data-theme="dark"], body.dark {
@@ -691,7 +690,7 @@ hr {
   
 .searchbar input[type=text]:active,
 .searchbar input[type=text]:focus {
-    background-color: var(-sub);
+    background-color: var(-bg-sub);
     outline: none;
 } 
 

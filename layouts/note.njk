@@ -16,15 +16,17 @@ layout: base.njk
         </a>
       </div>
 
-      <h1 class="note-title">{{ title }}</h1>
+      <section class="content-area" data-pagefind-body>
+        <h1 class="note-title">{{ title }}</h1>
 
-      <div class="note-content">
-        {{ content | safe }}
-      </div>
+        <div class="note-content">
+          {{ content | safe }}
+        </div>
+      </section>
 
       {% include 'backlinks.njk' %}
 
-      <div class="block-area note-references">
+      <div class="block-area note-references"  data-pagefind-body>
         <h5 class="block-title">Meta</h5>
         <div class="related-wrapper block-box">
           <div class="related-group">
