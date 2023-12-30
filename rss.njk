@@ -1,0 +1,36 @@
+---
+type: feed
+eleventyExcludeFromCollections: true
+permalink: 'rss.xml'
+pagination:
+  data: collections.allNotes
+  size: 10
+  alias: notes
+  reverse: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title><![CDATA[{{ siteConfig.title }} - RSS Feed]]></title>
+    <description><![CDATA[{{ siteConfig.description }}]]></description>
+    <link>{{ siteConfig.url }}</link>
+    <generator>11-Garden</generator>
+    <lastBuildDate>{{ notes[0].data.date }}</lastBuildDate>
+
+    {% for note in notes %}
+      <item>
+        <title><![CDATA[{{ note.data.title }}]]></title>
+        <description><![CDATA[{% if note.data.excerpt %}{{ note.data.excerpt }}
+          {% else %}{{ note.templateContent | extractExcerpt }}
+          {% endif %}]]>
+        </description>
+        <link>{{ note.data.permalink | absoluteUrl }}</link>
+        <guid isPermaLink="false">{{ note.data.permalink | absoluteUrl }}</guid>
+        <pubDate>{{ note.data.date }}</pubDate>
+        <content:encoded>
+          {{ note.templateContent }}
+        </content:encoded>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

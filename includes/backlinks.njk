@@ -1,12 +1,12 @@
-{% if backlinks.length > 0%}
+{% if backlinks.length > 0 %}
   <div class="related note-references">
     <h5 class="block-title">Links to this note</h5>
 
     <div class="related-wrapper">
     {% for link in backlinks %}
       <div class="related-group block-box">
-        <a href="{{link.url}}">
-          <h4 class="related-title">{{link.title}}</h4>
+        <a href="{{ link.url }}">
+          <h4 class="related-title">{{ link.title }}</h4>
         </a>
         <p class="related-excerpt muted-text">{{ link.preview | markdownify | stripHtml }}</p>
       </div>

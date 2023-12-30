@@ -5,7 +5,7 @@
 
 <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ siteConfig.title }}{% endif %}" />
 <meta property="og:description" content="{% if excerpt %}{{ excerpt }}{% else %}{{ siteConfig.description }}{% endif %}" />
-<meta property="og:url" content="{{ page.url }}" />
+<meta property="og:url" content="{{ page.url | absoluteUrl }}" />
 {% if type == 'note' %}<meta property="og:type" content="article" />
 {% else %}<meta property="og:type" content="website" />
 {% endif %}

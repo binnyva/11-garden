@@ -1,4 +1,4 @@
-const { format, formatISO, getYear } = require("date-fns");
+const { format } = require("date-fns");
 const makeSlug = require(`./utils/make-slug`)
 const { camelCase, startCase } = require('lodash')
 const siteConfig = require("./_data/siteConfig.js");
@@ -84,6 +84,10 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("makeSlug", string => {
     return makeSlug(string);
+  })
+
+  eleventyConfig.addFilter("absoluteUrl", string => {
+    return new URL(string, siteConfig.url).href
   })
 
   eleventyConfig.addFilter("parseSource", src => {
