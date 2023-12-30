@@ -121,6 +121,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("allNotes", function (collection) {
     return collection.getFilteredByGlob(["_notes/**/*.md", "index.md"]);
   });
+  eleventyConfig.addCollection("latestFiveNotes", function (collection) {
+    return collection.getFilteredByGlob(["_notes/**/*.md", "index.md"])
+      .sort((a, b) => b.date - a.date) // sort by date - descending
+      .slice(0, 5);
+  });
+  
 
   // Array of all tags with the number of notes tagged with it. {'tag-name': 3, 'another': 6 ...}
   eleventyConfig.addCollection("tagList", function(collection) {

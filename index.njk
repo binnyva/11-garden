@@ -2,11 +2,6 @@
 layout: base.njk
 type: index
 eleventyExcludeFromCollections: true
-pagination:
-  data: collections.allNotes 
-  size: 5
-  alias: notes
-  reverse: true
 ---
 
 <div class="column is-half">
@@ -33,7 +28,7 @@ pagination:
   </div>
 
   <div class="block note-list note-cards">
-    {% for note in notes %}
+    {% for note in collections.latestFiveNotes %}
       {% include "note-list-item.njk" %}
     {% endfor %}
 
