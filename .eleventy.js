@@ -95,7 +95,9 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter("readableDate", date => {
-    return date ? format(date, "MMM dd, yyyy") : "";
+    return date ? 
+      ( Date.parse(date) ? format(Date.parse(date), "MMM dd, yyyy") : date )
+      : ""
   });
 
   eleventyConfig.addFilter("titleCase", str => {
