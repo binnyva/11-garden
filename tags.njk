@@ -2,16 +2,11 @@
 layout: base.njk
 type: tag
 eleventyExcludeFromCollections: true
+permalink: "/tags/{{ tag | makeSlug }}/"
 pagination:
-  data: collections
+  data: collections.tagList
   size: 1
   alias: tag
-  filter:
-    - all
-    - allNotes
-    - tagList
-    - topTags
-permalink: /tags/{{ tag | makeSlug }}/
 ---
 <div class="column is-half">
   <div class="block">
@@ -26,4 +21,5 @@ permalink: /tags/{{ tag | makeSlug }}/
     {% endfor %}
     </div>
   </div>
+
 </div>
