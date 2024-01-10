@@ -38,7 +38,7 @@ module.exports = function(eleventyConfig) {
         if(match[0].startsWith('!')) {
           return `<img src="${siteConfig.pathPrefix}images/${match[1]}" alt="${label}" />`
         } else {
-          return `<a href="${siteConfig.pathPrefix}${pageName}">${label}</a>`
+          return `<a href="${siteConfig.pathPrefix}${pageName}/">${label}</a>`
         }
       }))
 
