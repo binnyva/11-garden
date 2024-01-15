@@ -10,30 +10,30 @@
 {% else %}<meta property="og:type" content="website" />
 {% endif %}
 
-{% set excerpt = excerpt | truncate(55) %}
+{% set excerpt = excerpt | truncate(100) %}
 <meta name="description" content="{% if excerpt %}{{ excerpt }}{% else %}{{ siteConfig.description }}{% endif %}" />
-<link rel="canonical" href="{{ page.url }}" />
+<link rel="canonical" href="{{ page.url | absoluteUrl }}" />
 
 <title>{% if title %}{{ title }} | {% endif %}{{ siteConfig.title }}</title>
 
 <link rel="alternate" type="application/rss+xml" title="{{ siteConfig.title }} - RSS Feed" href="{{ 'rss.xml' | absoluteUrl }}" />
 
-<link rel="apple-touch-icon" href="{{ siteConfig.pathPrefix }}assets/img/favicon.png" />
-<link rel="icon" href="{{ siteConfig.pathPrefix }}assets/img/favicon.png" type="image/png" sizes="16x16" />
+<link rel="apple-touch-icon" href="{{ 'assets/img/favicon.png' | absoluteUrl }}" />
+<link rel="icon" href="{{ 'assets/img/favicon.png' | absoluteUrl }}" type="image/png" sizes="16x16" />
 
-<script src="{{ siteConfig.pathPrefix }}assets/js/script.js"></script>
-<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/bulma.css" />
-<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/style.css" />
-<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/custom.css" />
-<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/common/util.css" />
+<script src="{{ 'assets/js/script.js' | absoluteUrl }}"></script>
+<link rel="stylesheet" href="{{ 'assets/styles/common/bulma.css' | absoluteUrl }}" />
+<link rel="stylesheet" href="{{ 'assets/styles/common/style.css' | absoluteUrl }}" />
+<link rel="stylesheet" href="{{ 'assets/styles/common/custom.css' | absoluteUrl }}" />
+<link rel="stylesheet" href="{{ 'assets/styles/common/util.css' | absoluteUrl }}" />
 
-<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/note.css" />
+<link rel="stylesheet" href="{{ 'assets/styles/note.css' | absoluteUrl }}" />
 
-{% if type == 'index' %}<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/index.css" />
-{% elif type == 'tag' %}<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/tag-list.css" />
-{% elif type == 'sitemap' %}<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/pager.css" />
+{% if type == 'index' %}<link rel="stylesheet" href="{{ 'assets/styles/index.css' | absoluteUrl }}" />
+{% elif type == 'tag' %}<link rel="stylesheet" href="{{ 'assets/styles/tag-list.css' | absoluteUrl }}" />
+{% elif type == 'sitemap' %}<link rel="stylesheet" href="{{ 'assets/styles/pager.css' | absoluteUrl }}" />
 {% endif %}
 
-<link href="{{ siteConfig.pathPrefix }}pagefind/pagefind-ui.css" rel="stylesheet">
-<script src="{{ siteConfig.pathPrefix }}pagefind/pagefind-ui.js"></script>
-<link rel="stylesheet" href="{{ siteConfig.pathPrefix }}assets/styles/search.css" />
+<link href="{{ 'pagefind/pagefind-ui.css' | absoluteUrl }}" rel="stylesheet">
+<script src="{{ 'pagefind/pagefind-ui.js' | absoluteUrl }}"></script>
+<link rel="stylesheet" href="{{ 'assets/styles/search.css' | absoluteUrl }}" />

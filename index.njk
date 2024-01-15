@@ -13,7 +13,7 @@ eleventyExcludeFromCollections: true
   {% if collections.topTags %}
     <div class="block tag-list">
       {% for tag in collections.topTags %}
-        <a href="/tags/{{ tag }}" class="pill">{{ tag | titleCase }}</a>
+        <a href="{{ tag | absoluteTagUrl }}" class="pill">{{ tag | titleCase }}</a>
       {% endfor %}
     </div>
   {% endif %}
@@ -32,7 +32,7 @@ eleventyExcludeFromCollections: true
       {% include "note-list-item.njk" %}
     {% endfor %}
 
-    <a href="sitemap">All Notes...</a>
+    <a href="{{ "/sitemap/" | absoluteUrl }}">All Notes...</a>
   </div>
   
 </div>

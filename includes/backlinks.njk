@@ -5,7 +5,7 @@
     <div class="related-wrapper">
     {% for link in backlinks %}
       <div class="related-group block-box">
-        <a href="{{ link.url }}">
+        <a href="{{ link.url | absoluteUrl }}">
           <h4 class="related-title">{{ link.title }}</h4>
         </a>
         <p class="related-excerpt muted-text">{{ link.preview | markdownify | stripHtml }}</p>

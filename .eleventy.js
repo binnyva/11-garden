@@ -3,6 +3,8 @@ const makeSlug = require(`./utils/make-slug`)
 const { camelCase, startCase } = require('lodash')
 const siteConfig = require("./_data/siteConfig.js");
 const Plugin = require('markdown-it-regexp')
+const fs = require('fs');
+const path = require('path');
 
 module.exports = function(eleventyConfig) {
   const imageFolder = 'images';
@@ -13,6 +15,8 @@ module.exports = function(eleventyConfig) {
     html: true,
     linkify: true
   };
+
+  const fileNameList = fs.readdirSync('_notes/'); //.map(file => path.parse(file).name); // Ideally, we should get this from collections, but I'm not sure how to do that
   
   const md = markdownIt(markdownItOptions)
     // Very simplified version of https://github.com/alexjv89/markdown-it-obsidian
@@ -21,13 +25,16 @@ module.exports = function(eleventyConfig) {
       (match, utils) => {
         let label = ''
         let pageName = ''
+        let noteName = ''
         const isSplit = !!match[3]
         if (isSplit) {
           label = match[3].slice(1) // Remove the | or the #
           pageName = makeSlug(match[2])
+          noteName = match[2]
         } else {
           label = match[1] // ideally format(match[1])
           pageName = makeSlug(label)
+          noteName = label
         }
 
         // make sure none of the values are empty
@@ -35,10 +42,17 @@ module.exports = function(eleventyConfig) {
           return match.input
         }
 
+        // Make sure the linked note exists. We don't want 404 links
+        if(fileNameList.find(ele => 
+            (ele === noteName) || (path.parse(ele).name === path.parse(noteName).name) 
+          ) === undefined) {
+          return label
+        }
+
         if(match[0].startsWith('!')) {
-          return `<img src="${siteConfig.pathPrefix}images/${match[1]}" alt="${label}" />`
+          return `<img src="${ absoluteUrl(`images/${match[1]}`) }" alt="${label}" />`
         } else {
-          return `<a href="${siteConfig.pathPrefix}${pageName}/">${label}</a>`
+          return `<a href="${ absoluteUrl(pageName) }/">${label}</a>`
         }
       }))
 
@@ -47,7 +61,6 @@ module.exports = function(eleventyConfig) {
     const token = tokens[idx]
     let imgSrc = token.attrGet('src')
     const imgAlt = token.content
-    const imgTitle = token.attrGet('title')
 
     if(!imgSrc.match(/^https?\:/)) {
       const filename = imgSrc.replace(/^.*[\\\/]/, '')
@@ -87,7 +100,11 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter("absoluteUrl", string => {
-    return new URL(string, siteConfig.url).href
+    return absoluteUrl(string);
+  })
+
+  eleventyConfig.addFilter("absoluteTagUrl", tag => {
+    return absoluteUrl( "/tag/" + makeSlug(tag) + "/" );
   })
 
   eleventyConfig.addFilter("parseSource", src => {
@@ -110,9 +127,9 @@ module.exports = function(eleventyConfig) {
     if(menuItem.title) title = menuItem.title
 
     if (menuItem.type == 'tag') {
-      return `<a class="navbar-item" href="${siteConfig.pathPrefix}tags/${menuItem.item}">${title}</a>`
+      return `<a class="navbar-item" href="${ absoluteUrl('tags/' + menuItem.item ) }">${title}</a>`
     } else if (menuItem.type == 'page') {
-      return `<a class="navbar-item" href="${siteConfig.pathPrefix}${menuItem.item}">${title}</a>`
+      return `<a class="navbar-item" href="${ absoluteUrl(menuItem.item) }">${title}</a>`
     } else if (menuItem.type == 'link') {
       return `<a class="navbar-item" href="${menuItem.item}">${title}</a>`
     }
@@ -214,6 +231,10 @@ function makeTagList(collection) {
   return tagList;
 }
 
+function absoluteUrl(string) {
+  return new URL(string, siteConfig.url).href
+}
+
 function parseSource(src, md) {
   if (!src) return null
   // :TODO: Handle a list of sources and not just a single source
@@ -229,10 +250,10 @@ function parseSource(src, md) {
     // Source given as Wiki Link - internal link - [[Text]]
     const titleParts = src.match(/(.+)\|(.+)/) // [[Note Name|Link Text]] format.
     if (titleParts) {
-      link = `<a href="${siteConfig.pathPrefix}${makeSlug(titleParts[2])}/">${titleParts[1]}</a>`
+      link = `<a href="${ absoluteUrl( makeSlug(titleParts[2]) ) }/">${titleParts[1]}</a>`
     } else {
       const title = src.replace(new RegExp(/[\[\]]/, 'g'), '') // eslint-disable-line
-      link = `<a href="${siteConfig.pathPrefix}${makeSlug(title)}">${title}</a>`
+      link = `<a href="${ absoluteUrl( makeSlug(title) ) }">${title}</a>`
     }
 
   } else {

@@ -49,7 +49,7 @@ layout: base.njk
                 <strong class="note-meta-title">Tagged With:</strong>
                 <ul>
                   {% for tag in tags %}
-                    <li><a href="{{ siteConfig.pathPrefix }}tags/{{ tag | makeSlug }}">{{ tag }}</a></li>
+                    <li><a href="{{ tag | absoluteTagUrl }}">{{ tag }}</a></li>
                   {% endfor %}
                 </ul>
               </div>
