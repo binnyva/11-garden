@@ -81,3 +81,7 @@ Markdown has too many variants. [[11 Garden]] supports a few non-standard featur
 - WikiLinks - [[Understand by Explaining]]
 - WikiLinks with custom text - [[Understand by Explaining|custom text]]
 - Image insertion - ![[mental_programming.jpg]]
+
+## Other Features
+
+[[Link to Missing page]]: This should NOT be linked(otherwise, the user might get a 404 error).

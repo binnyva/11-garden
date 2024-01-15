@@ -9,5 +9,9 @@ date: 2021-05-12
 source: "[[Zettelkasten]]"
 ---
 
-Markdown is a lightweight markup language for creating formatted text using plain-text.
+Permanent Notes in Zettelkasten should follow this framework...
 
+- One idea per note - but as complete as possible in your own words
+- Write as if you are writing for someone else - use full sentences, show sources.
+- Be precise, clear and brief
+- Should be understood even if you don't know the context it was taken from.

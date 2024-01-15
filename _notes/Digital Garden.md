@@ -3,7 +3,7 @@ title: Digital Garden
 tags:
   - learning
   - digital-garden
-source: '[Digital Garden Setup](https://nesslabs.com/digital-garden-set-up)'
+source: '[[11 Garden]]'
 excerpt: "A digital garden is an online space at the intersection of a notebook and a blog"
 ---
 
