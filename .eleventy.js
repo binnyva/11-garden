@@ -16,7 +16,7 @@ module.exports = function(eleventyConfig) {
     linkify: true
   };
 
-  const fileNameList = fs.readdirSync('_notes/'); //.map(file => path.parse(file).name); // Ideally, we should get this from collections, but I'm not sure how to do that
+  const fileNameList = fs.readdirSync('_notes/'); // Ideally, we should get this from collections, but I'm not sure how to do that
   
   const md = markdownIt(markdownItOptions)
     // Very simplified version of https://github.com/alexjv89/markdown-it-obsidian
@@ -104,7 +104,7 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter("absoluteTagUrl", tag => {
-    return absoluteUrl( "/tag/" + makeSlug(tag) + "/" );
+    return absoluteUrl( "tags/" + makeSlug(tag) + "/" );
   })
 
   eleventyConfig.addFilter("parseSource", src => {
