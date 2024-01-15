@@ -50,6 +50,7 @@ nav.navbar .dropdown-menu {
 
 nav.navbar .dropdown:hover .dropdown-menu {
   display: block;
+  z-index: 999;
 }
 
 nav.navbar {
@@ -82,20 +83,25 @@ nav.navbar {
   color: var(--text-main);
 }
 
-#themeToggle .theme-toggle-text {
+.themeToggle .theme-toggle-text {
   display: none;
 }
 
-#themeToggle {
+.themeToggle {
   width: 30px;
   height: 30px;
   background: url("/assets/img/sun.svg") no-repeat;
   background-size: contain;
   color: var(--text-main);
 }
-body.dark #themeToggle {
+body.dark .themeToggle {
   width: 30px;
   height: 30px;
   background: url("/assets/img/moon.svg") no-repeat;
   background-size: contain;
+}
+
+.is-hidden-tablet .themeToggle {
+  width: 20px !important;
+  height: 20px !important;
 }

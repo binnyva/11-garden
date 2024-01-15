@@ -7,7 +7,7 @@
 
   <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="{{ siteConfig.pathPrefix }}">
+      <a class="navbar-item" href="{{ '/' | absoluteUrl }}">
         <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" clipRule="evenodd" fill="var(--text-main)"
             d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" />
@@ -15,7 +15,11 @@
         <h4>{{ siteConfig.title }}</h4>
       </a>
       <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet">
-        {# <DarkMode /> #}
+        <div class="navbar-item">
+          <span class="themeToggle" onClick="themeToggle()">
+            <span class="theme-toggle-text">Toggle</span>
+          </span>
+        </div>
       </div>
       <button
         class="navbar-burger button-link"
@@ -34,7 +38,7 @@
         {% for menuItem in siteConfig.headerMenu %}
           {% if menuItem.menu %}
             <span class="navbar-item dropdown">
-              <a href="{{ siteConfig.pathPrefix }}{{ menuItem.item }}"
+              <a href="{{ menuItem.item | absoluteUrl }}"
                 id="dropdown-{{menuItem.item}}"
                 class="dropdown-toggle"
                 data-toggle="dropdown"
@@ -52,7 +56,7 @@
         {% endfor %}
       </div>
 
-      <div class="navbar-end is-hidden-mobile">
+      <div class="navbar-end">
         <div class="navbar-item">
           <div id="navbar-search"></div>
           <script>
@@ -61,11 +65,14 @@
             });
           </script>
         </div>
-        <div class="navbar-item">
-          <span id="themeToggle" onClick="themeToggle()">
-            <span class="theme-toggle-text">Toggle</span>
-          </span>
-        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end is-hidden-mobile">
+      <div class="navbar-item">
+        <span class="themeToggle" onClick="themeToggle()">
+          <span class="theme-toggle-text">Toggle</span>
+        </span>
       </div>
     </div>
   </nav>
