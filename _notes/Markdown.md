@@ -84,4 +84,4 @@ Markdown has too many variants. [[11 Garden]] supports a few non-standard featur
 
 ## Other Features
 
-[[Link to Missing page]]: This should NOT be linked(otherwise, the user might get a 404 error).
+[[Link to Missing page]]: This should NOT be linked(otherwise, the user might get a 404 error). Also, link to existing page with different case: [[externalize your thinking]] - This should link.

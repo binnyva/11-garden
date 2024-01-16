@@ -44,10 +44,10 @@ module.exports = function(eleventyConfig) {
 
         // Make sure the linked note exists. We don't want 404 links
         if(fileNameList.find(ele => 
-            (ele === noteName) || (path.parse(ele).name === path.parse(noteName).name) 
-          ) === undefined) {
-          return label
-        }
+          (ele.toLowerCase() === noteName.toLowerCase()) || (path.parse(ele).name.toLowerCase() === path.parse(noteName).name.toLowerCase()) 
+        ) === undefined) {
+        return label
+      }
 
         if(match[0].startsWith('!')) {
           return `<img src="${ absoluteUrl(`images/${match[1]}`) }" alt="${label}" />`
