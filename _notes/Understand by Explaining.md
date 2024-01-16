@@ -1,5 +1,6 @@
 ---
 title: Understand by Explaining
+source: "How to take Smart Notes, Book"
 tags:
   - zettelkasten
   - learning

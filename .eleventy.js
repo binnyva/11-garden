@@ -257,7 +257,12 @@ function parseSource(src, md) {
     }
 
   } else {
-    link = `<a href="${src}">Link to Source</a>`;
+    if(src.match(/^http/)) {
+      link = `<a href="${src}">Link to Source</a>`;
+
+    } else {
+      link = src; // NOT a link.
+    }
   }
 
   return link
