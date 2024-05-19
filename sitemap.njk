@@ -23,7 +23,7 @@ pagination:
     <ul class="pagination">
       <li>Pages: </li>
     {%- for pageEntry in pagination.pages %}
-      <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
+      <li><a href="{{ pagination.hrefs[ loop.index0 ] | absoluteUrl }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
     {%- endfor %}
     </ul>
   {% endif %}

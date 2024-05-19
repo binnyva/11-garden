@@ -232,6 +232,11 @@ function makeTagList(collection) {
 }
 
 function absoluteUrl(string) {
+  // The URL() will return root url if the suburl starts with a '/' - so remove it if its present.
+  if (string.length > 0 && string.charAt(0) === '/') { 
+    string = string.substring(1);
+  }
+  
   return new URL(string, siteConfig.url).href
 }
 
