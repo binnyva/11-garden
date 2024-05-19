@@ -16,7 +16,7 @@ First, **fork the project to your personal account**.
 
 How to Fork?
 
-Go to the github page for [this project](https://github.com/binnyva/11-garden) and click on the Fork button to the top right cornor. This will create a copy of the repository in your personal account.
+Go to the github page for [this project](https://github.com/binnyva/11-garden) and click on the Fork button to the top right corner. This will create a copy of the repository in your personal account.
 
 Now **clone the forked project to your system**...
 
@@ -31,7 +31,7 @@ cd 11-garden
 npm install
 ```
 
-## Submiting contributions
+## Submitting contributions
 
 **Create a branch** that you will have your changes
 
@@ -39,7 +39,7 @@ npm install
 git checkout -b "*<branch name>*"
 ```
 
-Make all the changes you want to that branch. And **commit the changes**. PS: This will also run the linting tool to make sure your code is formated correctly.
+Make all the changes you want to that branch. And **commit the changes**. PS: This will also run the linting tool to make sure your code is formatted correctly.
 
 ```
 git commit -am "*<description of the changes you made>*"
@@ -63,13 +63,13 @@ Now the admin of the main repository will review your code and merge your featur
 
 ## Working with Others
 
-You'll need to sync your local repository with the main online repository. This will get you the code that other people are commiting to the repository. You do this by **adding the main repository as an 'upstream' branch**.
+You'll need to sync your local repository with the main online repository. This will get you the code that other people are committing to the repository. You do this by **adding the main repository as an 'upstream' branch**.
 
 ```
 git remote add upstream git@github.com:binnyva/11-garden.git
 ```
 
-You can pull from the upsteam using these commands...
+You can pull from the upstream using these commands...
 
 ```
 git fetch upstream
