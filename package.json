@@ -21,11 +21,11 @@
   "license": "MIT",
   "homepage": "https://github.com/binnyva/11-garden",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.1",
-    "date-fns": "^2.29.3",
+    "@11ty/eleventy": "^2.0.1",
+    "date-fns": "^3.6.0",
     "lodash": "^4.17.21",
-    "markdown-it": "^12.3.2",
+    "markdown-it": "^14.1.0",
     "markdown-it-regexp": "^0.4.0",
-    "pagefind": "^1.0.4"
+    "pagefind": "^1.1.0"
   }
 }
