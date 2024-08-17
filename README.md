@@ -39,15 +39,18 @@ If everything went fine, you should see `11-garden` running in your browser at <
 
 Once 11-garden has been installed, **add your markdown notes to the `_notes` folder**. Make sure you delete all the sample notes there first. If you are using Obsidian to create notes, you can set the `_notes` folder to be a shortcut/link to the Obsidian vault. If you don't do that, you'll have to copy over all the notes from the vault to the `_notes` folder everytime you want to make a static build of your notes.
 
-Edit `_data\siteConfig.js` file and add your site details there. Few supported values are...
+Edit `_data\siteConfig.js` file and add your site details there. The supported values are...
 
 ```js
 module.exports = {
-    title: "PKM Book",
-    url: "http://localhost:8080", // "https://mindos.in/pkm-book/"
+    title: "PKM Garden",
+    url: "http://localhost:8080", // "https://notes.binnyva.com/"
     author: "Binny V A",
-    description: "Book about Personal Knowledge Management, Zettelkasten, Tools and Processes.",
+    description: "Personal Knowledge Management, Zettelkasten, Tools and Processes.",
+    pathPrefix: "/notes/", // If your site is not at the root of your website, use this. Requires a ending '/'
+    homeNote: 'Index', // If you want to set one note as the Home page, set the file name here
 
+    // If you want to have a header menu, uncomment this
     // headerMenu: [
     //   {type: 'page', item: '', title: 'Home'},
     //   {type: 'page', item: 'sitemap', title: 'Sitemap'},

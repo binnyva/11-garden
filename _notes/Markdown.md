@@ -18,7 +18,7 @@ Next, you should be able to create links - like [this](https://standup-philosoph
 
 ![Image](imgs/mental_programming.jpg)
 
-![External Image](https://binnyva.com/others/arathi/avatars/profile-1.jpg)
+![External Image](https://mindos.in/assets/favicons/mindos-logo.png)
 
 ---
 
