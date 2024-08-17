@@ -5,6 +5,12 @@ eleventyExcludeFromCollections: true
 ---
 
 <div class="column is-half">
+  {% if collections.homeNote.length === 1 %}
+    <div class="note-content">
+    {{ collections.homeNote[0].content | safe }}
+    </div>
+  {% else %}
+
   <div class="block">
     <h1>{{ siteConfig.title }}</h1>
     <p class="lead">{{ siteConfig.description }}</p>
@@ -34,5 +40,6 @@ eleventyExcludeFromCollections: true
 
     <a href="{{ "/sitemap/" | absoluteUrl }}">All Notes...</a>
   </div>
-  
+
+  {% endif %}  
 </div>

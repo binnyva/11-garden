@@ -136,6 +136,7 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter("keys", obj => Object.keys(obj)); // For debug
+  eleventyConfig.addFilter("json", obj => JSON.stringify(obj)); // For debug
 
   eleventyConfig.addCollection("allNotes", function (collection) {
     return collection.getFilteredByGlob(["_notes/**/*.md", "index.md"]);
@@ -145,8 +146,13 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => b.date - a.date) // sort by date - descending
       .slice(0, 5);
   });
-  
 
+  eleventyConfig.addCollection("homeNote", function (collection) {
+    if(!siteConfig.homeNote) return [];
+    const homeNoteSlug = siteConfig.homeNote.replace(/\.md$/, '')
+    return collection.getAll().filter(note => note.data.page.fileSlug.toLowerCase() === homeNoteSlug.toLowerCase())
+  })
+  
   // Array of all tags with the number of notes tagged with it. {'tag-name': 3, 'another': 6 ...}
   eleventyConfig.addCollection("tagList", function(collection) {
     return makeTagList(collection);

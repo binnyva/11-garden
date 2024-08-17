@@ -1,3 +1,5 @@
+@import './note.css';
+
 .tag-list ul {
 	margin: 2rem 0 !important;
 	padding: 0;
