@@ -41,7 +41,6 @@ html[data-theme="dark"], body.dark {
   } 
 }
 
-
 html {
     scroll-behavior: smooth;
 }
@@ -101,7 +100,6 @@ main {
 }
 
 /* Phrasing Style: H1, H2, H3, H4, H5, H6, P, A, UL, LI */
-
 
 /* Titles using major third
 .title.is-1, .is-size-1 {
@@ -177,7 +175,6 @@ h6 {
     font-weight: 600;
 }
 
-
 /* Major third with base font 16px */
 @media screen and (min-width: 769px), print {
     html {
@@ -248,7 +245,6 @@ b, strong {
     font-weight: 600;
 }
 
-
 /* Figures, Images, Code, Blockquotes, Tables */
 
 img {
@@ -256,12 +252,10 @@ img {
     height: auto;
 }
 
-
 code {
     font-family: Consolas, 'Courier New', Courier, monospace;
     display: inline-block;
-    overflow: auto !important;
-    white-space: pre-line !important;       
+    overflow: auto !important;    
     word-wrap: break-word !important;       
     padding: 2px 2px  2px 2px;
     vertical-align:middle;
@@ -284,14 +278,11 @@ code {
     border: none;
 }
 
-
 pre code {
     font-family: Consolas, 'Courier New', Courier, monospace;
     display: inline-block;
     overflow: auto !important;
-    white-space: pre-line !important;       
-    word-wrap: break-word !important;       
-    padding: 15px 15px  15px 15px;
+    word-wrap: break-word !important; 
     vertical-align:middle;
     width: 90%;
     background-color: var(--bg-sub);
@@ -300,7 +291,6 @@ pre code {
     color: var(--text-main);
 }
 
-
 blockquote:before {
   display: none;
 }
@@ -308,7 +298,6 @@ blockquote:before {
 blockquote {
     padding: 10px;
 }
-
 
 summary {
   display: flex;
@@ -363,11 +352,8 @@ tbody tr:nth-child(even) {
 }
 
 hr {
-    background-color: var(--horizontal-rule-color);
-    color: var(--horizontal-rule-color);
-    border: 0 none;
-    height: 1px;
-    margin-top: -10px;
+    border: 1px solid var(--border);
+    margin: 20px 0;
 }
 
 /* Blogposts: Post-heading, Post-subheading, Post-content, Related Posts*/
@@ -396,7 +382,6 @@ hr {
     margin-top: -25px;
 }
 
-
 .site-heading-rtl > .main-page-subheading {
     color: var(--text-main);
     font-family:  var(--primary-font-family);
@@ -405,7 +390,6 @@ hr {
     margin-top: -8px;
     margin-right: 20px;
 }
-
 
 
 .site-heading-rtl a {
@@ -435,7 +419,6 @@ hr {
     margin-top: -25px;
 }
 
-
 .site-heading-ltr > .main-page-subheading {
     color: var(--text-main);
     font-family:  var(--primary-font-family);
@@ -448,7 +431,6 @@ hr {
 .site-heading-ltr a {
     text-decoration: none;
 }
-
 
 .avatar {
     position: absolute;
@@ -475,7 +457,6 @@ hr {
     height: 85px;
     width: 85px;
 }
-
 
 .dashboard {
     border-bottom: 1px solid var(--primary-border-color);
@@ -594,13 +575,11 @@ hr {
     background-color:#ffffc4;
 }
 
-
 #markdown-toc::before {
     content: "Contents";
     font-weight: bold;
     text-align: center;
 }
-
 
 #markdown-toc li {
     margin-left: 1rem;
@@ -627,7 +606,6 @@ hr {
 #markdown-toc a:hover {
     text-decoration: underline;
 }
-
 
 /* Common custom components between Main Site and Notes: Searchbar, Backbutton, ContentBox, Related Posts/Notes, Copyright,  */
 
@@ -824,7 +802,6 @@ hr {
     color: var(--text-main) !important;
 }
 
-
 .search-overlay { 
     position: fixed; 
     top: 0; 
@@ -884,7 +861,6 @@ hr {
     cursor: pointer;
     font-weight: 600;
 }
-
 
 .feed-title-excerpt-block {
     width: 100%;
@@ -1045,7 +1021,6 @@ blockquote .mn-right {
     text-align: left; 
 }
 
-
 li .sn-right,
 li .mn-right {
     float: right;
@@ -1055,13 +1030,11 @@ li .mn-right {
     text-align: left; 
 }
 
-
 .tooltip {
     display:inline;
     position:relative;
     text-align:left;
 }
-
 
 .tooltip bottom {
     display: none;
@@ -1213,7 +1186,6 @@ label.srs-toggle {
     padding-right: 10px;
 }
 
-
 .related-excerpt {
     color: var(--text-main) !important;
     padding-left: 10px;
@@ -1272,7 +1244,6 @@ label.srs-toggle {
     color: var(--text-main);
     text-decoration: none;
 }
-
 
 
 /* context-menu styling */
@@ -1468,7 +1439,6 @@ label.srs-toggle {
       display: none;
   }
 }
-
 
 
 @media screen and (max-width: 800px){
